@@ -3,6 +3,9 @@ plugins {
     id("org.jetbrains.compose")
 }
 
+group = "com.hyeonseo"
+version = "1.0-SNAPSHOT"
+
 kotlin {
     js(IR) {
         browser {
@@ -21,4 +24,8 @@ kotlin {
             }
         }
     }
+}
+
+compose.experimental {
+    web.application {}
 }
