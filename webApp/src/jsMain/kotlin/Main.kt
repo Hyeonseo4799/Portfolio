@@ -4,8 +4,8 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.platform.Font
 import androidx.compose.ui.window.CanvasBasedWindow
-import designsystem.PortfolioTheme
-import designsystem.Pretendard
+import designsystem.theme.PortfolioTheme
+import designsystem.theme.Pretendard
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.resource
 import org.jetbrains.skiko.wasm.onWasmReady
