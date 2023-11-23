@@ -1,6 +1,5 @@
 package designsystem.component
 
-import designsystem.icon.RaisedHand
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -15,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
+import designsystem.icon.HandUp
 import designsystem.theme.PortfolioTheme
 
 @Composable
@@ -34,7 +34,7 @@ fun GreetingCallout(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Image(
-            imageVector = RaisedHand,
+            imageVector = HandUp,
             contentDescription = null
         )
         Text(
