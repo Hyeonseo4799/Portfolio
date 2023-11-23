@@ -19,6 +19,7 @@ import designsystem.theme.PortfolioTheme
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun CodeBlockText(
+    modifier: Modifier = Modifier,
     fullText: String,
     highlightedWords: List<String>,
     boldCodeBlock: Boolean = false,
@@ -26,7 +27,7 @@ fun CodeBlockText(
     val words = fullText.split(" ")
 
     // TODO: Lazy 하게 표시되도록 변경하기
-    FlowRow {
+    FlowRow(modifier = modifier) {
         words.forEach { word ->
             val isCodeBlock = word in highlightedWords
 
