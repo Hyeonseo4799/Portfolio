@@ -2,10 +2,7 @@ package designsystem.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -34,6 +31,7 @@ fun GreetingCallout(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Image(
+            modifier = Modifier.size(24.dp),
             imageVector = HandUp,
             contentDescription = null
         )
