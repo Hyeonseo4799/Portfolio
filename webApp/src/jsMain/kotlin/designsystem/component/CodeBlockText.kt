@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import designsystem.theme.PortfolioTheme
@@ -20,6 +21,7 @@ import designsystem.theme.PortfolioTheme
 fun CodeBlockText(
     fullText: String,
     highlightedWords: List<String>,
+    boldCodeBlock: Boolean = false,
 ) {
     val words = fullText.split(" ")
 
@@ -42,6 +44,7 @@ fun CodeBlockText(
                 text = " $word ",
                 fontSize = if (isCodeBlock) 13.6.sp else 16.sp,
                 style = MaterialTheme.typography.body1,
+                fontWeight = if (isCodeBlock && boldCodeBlock) FontWeight.Bold else FontWeight.Normal,
                 color = if (isCodeBlock) PortfolioTheme.color.red else Color.Black
             )
         }
