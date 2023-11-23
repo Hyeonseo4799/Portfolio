@@ -29,6 +29,7 @@ val Typography by lazy {
             fontFamily = Pretendard,
             fontSize = 16.sp,
             fontWeight = FontWeight.Normal,
+            lineHeight = 24.sp
         )
     )
 }
