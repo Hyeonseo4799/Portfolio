@@ -12,6 +12,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.*
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
@@ -20,11 +21,15 @@ import designsystem.theme.PortfolioTheme
 @Composable
 fun CodeBlockText(
     text: String,
+    useBoldCodeBlock: Boolean = false,
 ) {
     val widthTextUnits = remember { mutableStateListOf<TextUnit>() }
 
     val annotatedString = buildAnnotatedString {
-        appendCodeBlockText(text = text) { value ->
+        appendCodeBlockText(
+            text = text,
+            useBoldCodeBlock = useBoldCodeBlock
+        ) { value ->
             widthTextUnits.add(calculatePaddedWidth(value.size.width))
         }
     }
@@ -47,7 +52,8 @@ fun CodeBlockText(
                     )
                     .padding(horizontal = 6.4.dp),
                 text = it,
-                color = PortfolioTheme.color.red
+                color = PortfolioTheme.color.red,
+                fontWeight = if (useBoldCodeBlock) FontWeight.Bold else FontWeight.Normal,
             )
         }
     }.toMap()
@@ -62,6 +68,7 @@ fun CodeBlockText(
 @Composable
 private fun Builder.appendCodeBlockText(
     text: String,
+    useBoldCodeBlock: Boolean,
     onTextMeasure: @Composable (TextLayoutResult) -> Unit,
 ) {
     val codeBlockRegex = "`(.+?)`".toRegex()
@@ -74,9 +81,12 @@ private fun Builder.appendCodeBlockText(
         val startIndex = result.range.first
         val endIndex = result.range.last + 1
         // FIXME: 특정 문자(ex: 아키텍처)에서 글자가 잘리는 문제
+        val textStyle = MaterialTheme.typography.body1.copy(
+            fontWeight = if (useBoldCodeBlock) FontWeight.Bold else FontWeight.Normal
+        )
         val textLayoutResult = textMeasurer.measure(
             text = codeBlock,
-            style = MaterialTheme.typography.body1,
+            style = textStyle,
         )
 
         onTextMeasure(textLayoutResult)
