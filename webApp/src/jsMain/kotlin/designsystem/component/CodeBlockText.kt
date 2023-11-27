@@ -73,6 +73,7 @@ private fun Builder.appendCodeBlockText(
         val codeBlock = result.groupValues[1]
         val startIndex = result.range.first
         val endIndex = result.range.last + 1
+        // FIXME: 특정 문자(ex: 아키텍처)에서 글자가 잘리는 문제
         val textLayoutResult = textMeasurer.measure(
             text = codeBlock,
             style = MaterialTheme.typography.body1,
@@ -98,7 +99,8 @@ private fun Builder.appendCodeBlockText(
 private fun calculatePaddedWidth(width: Int): TextUnit {
     return with(LocalDensity.current) {
         // horizontal padding(6.4.dp)을 반올림 한 값으로 설정
-        val paddingPx = 13.dp.toPx()
+        // HACK: 특정 문자(ex: 아키텍처)에서 글자가 잘려 1.dp 추가
+        val paddingPx = 14.dp.toPx()
         val textPx = width.toDp().toPx()
         (paddingPx + textPx).toSp()
     }
