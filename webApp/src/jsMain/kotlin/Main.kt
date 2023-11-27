@@ -1,14 +1,21 @@
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.text.BasicText
+import androidx.compose.material.Surface
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.platform.Font
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.CanvasBasedWindow
 import designsystem.theme.PortfolioTheme
 import designsystem.theme.Pretendard
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.resource
 import org.jetbrains.skiko.wasm.onWasmReady
+import view.PortfolioWeb
 
 @OptIn(ExperimentalComposeUiApi::class)
 fun main() {
@@ -23,7 +30,15 @@ fun main() {
 
             if (!loading) {
                 PortfolioTheme {
-
+                    Surface(
+                        modifier = Modifier
+                            .fillMaxSize()
+//                            .padding(top = 32.dp)
+                            .wrapContentWidth(align = Alignment.CenterHorizontally)
+                            .widthIn(max = 900.dp),
+                    ) {
+                        PortfolioWeb()
+                    }
                 }
             }
         }
