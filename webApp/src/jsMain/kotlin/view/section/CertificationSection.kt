@@ -32,6 +32,7 @@ fun CertificationItem(
         Text(
             text = buildAnnotatedString {
                 append(text = name)
+                append(text = " | ")
                 appendGray(text = date)
             },
             style = MaterialTheme.typography.h3
