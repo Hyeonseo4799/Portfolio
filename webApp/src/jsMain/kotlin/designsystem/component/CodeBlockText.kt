@@ -94,6 +94,7 @@ private fun Builder.appendCodeBlockText(
     }
 }
 
+@Composable
 private fun calculatePaddedWidth(width: Int): TextUnit {
     return with(LocalDensity.current) {
         // horizontal padding(6.4.dp)을 반올림 한 값으로 설정
