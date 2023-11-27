@@ -10,7 +10,6 @@ import androidx.compose.ui.unit.dp
 import designsystem.component.SectionTitle
 import designsystem.component.annotated.appendGray
 import designsystem.theme.PortfolioTheme
-import view.PortfolioWeb
 
 @Composable
 fun CertificationSection() {
