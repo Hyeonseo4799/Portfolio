@@ -9,13 +9,16 @@ import androidx.compose.foundation.text.appendInlineContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.*
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
+import androidx.compose.ui.unit.sp
 import designsystem.theme.PortfolioTheme
 
 @Composable
@@ -52,6 +55,8 @@ fun CodeBlockText(
                     )
                     .padding(horizontal = 6.4.dp),
                 text = it,
+                fontSize = 13.6.sp,
+                textAlign = TextAlign.Justify,
                 color = PortfolioTheme.color.red,
                 fontWeight = if (useBoldCodeBlock) FontWeight.Bold else FontWeight.Normal,
             )
@@ -82,7 +87,8 @@ private fun Builder.appendCodeBlockText(
         val endIndex = result.range.last + 1
         // FIXME: 특정 문자(ex: 아키텍처)에서 글자가 잘리는 문제
         val textStyle = MaterialTheme.typography.body1.copy(
-            fontWeight = if (useBoldCodeBlock) FontWeight.Bold else FontWeight.Normal
+            fontWeight = if (useBoldCodeBlock) FontWeight.Bold else FontWeight.Normal,
+            fontSize = 13.6.sp
         )
         val textLayoutResult = textMeasurer.measure(
             text = codeBlock,
