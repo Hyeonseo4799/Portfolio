@@ -6,12 +6,12 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.*
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import designsystem.component.SectionTitle
 import designsystem.component.annotated.appendLink
+import kotlinx.browser.window
 
 @Composable
 fun ActivitySection(
@@ -61,7 +61,6 @@ fun ActivityItem(
     year: String,
     activities: List<Activity>,
 ) {
-    val uriHandler = LocalUriHandler.current
     val annotatedString = buildAnnotatedString {
         activities.forEach {
             // TODO: break point & linebreak 로직 리팩토링
@@ -89,7 +88,7 @@ fun ActivityItem(
             style = MaterialTheme.typography.body1.copy(lineHeight = 34.sp),
             onClick = { offset ->
                 annotatedString.getUrlAnnotations(offset, offset).firstOrNull()?.let { annotation ->
-                    uriHandler.openUri(annotation.item.url)
+                    window.location.href = annotation.item.url
                 }
             }
         )

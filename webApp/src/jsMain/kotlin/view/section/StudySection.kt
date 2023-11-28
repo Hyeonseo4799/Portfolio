@@ -11,12 +11,12 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import designsystem.component.SectionTitle
 import designsystem.icon.ArrowDown
 import designsystem.icon.Pencil
+import kotlinx.browser.window
 
 @Composable
 fun StudySection(
@@ -42,7 +42,6 @@ fun StudySection(
             modifier = Modifier.padding(top = 8.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            val uriHandler = LocalUriHandler.current
             val noteUrl = "https://hyeonseo4799.notion.site/2abb6c1977e34242b315179b746e0d3f?pvs=4"
 
             Image(
@@ -52,7 +51,7 @@ fun StudySection(
             )
             Text(
                 modifier = Modifier.clickable {
-                    uriHandler.openUri(noteUrl)
+                    window.location.href = noteUrl
                 },
                 text = "공부한거 끄적이기",
                 style = MaterialTheme.typography.body1,
