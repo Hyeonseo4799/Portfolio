@@ -17,8 +17,10 @@ import designsystem.icon.Seedling
 import kotlinx.browser.window
 
 @Composable
-fun InformationSection() {
-    Column {
+fun InformationSection(
+    modifier: Modifier = Modifier,
+) {
+    Column(modifier = modifier) {
         SectionTitle(text = "Infomation.")
         Row(
             modifier = Modifier

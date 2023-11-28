@@ -13,8 +13,10 @@ import androidx.compose.ui.unit.sp
 import designsystem.icon.Developer
 
 @Composable
-fun PortfolioHeader() {
-    Column {
+fun PortfolioHeader(
+    modifier: Modifier = Modifier
+) {
+    Column(modifier = modifier) {
         Image(
             modifier = Modifier.size(48.dp),
             imageVector = Developer,

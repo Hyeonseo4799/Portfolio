@@ -14,9 +14,11 @@ import designsystem.component.SectionTitle
 import designsystem.component.annotated.appendLink
 
 @Composable
-fun ActivitySection() {
+fun ActivitySection(
+    modifier: Modifier = Modifier
+) {
     Column(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(20.dp)
     ) {
         SectionTitle(text = "Activities.")

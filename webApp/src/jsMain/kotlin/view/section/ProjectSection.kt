@@ -14,8 +14,10 @@ import designsystem.component.Status
 import kotlinx.browser.window
 
 @Composable
-fun ProjectSection() {
-    Column {
+fun ProjectSection(
+    modifier: Modifier = Modifier,
+) {
+    Column(modifier = modifier) {
         val projects = listOf(
             Project(
                 imageRes = "ic_dotori.webp",

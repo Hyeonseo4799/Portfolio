@@ -19,8 +19,10 @@ import designsystem.icon.ArrowDown
 import designsystem.icon.Pencil
 
 @Composable
-fun StudySection() {
-    Column {
+fun StudySection(
+    modifier: Modifier = Modifier,
+) {
+    Column(modifier = modifier) {
         SectionTitle(text = "Study.")
         Row(
             modifier = Modifier.padding(top = 20.dp),

@@ -13,8 +13,10 @@ import designsystem.component.CodeBlockText
 import designsystem.component.SectionTitle
 
 @Composable
-fun SkillSection() {
-    Column {
+fun SkillSection(
+    modifier: Modifier = Modifier,
+) {
+    Column(modifier = modifier) {
         SectionTitle(text = "Skills.")
         Row(
             modifier = Modifier.padding(top = 20.dp),
