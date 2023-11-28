@@ -19,7 +19,7 @@ import view.PortfolioWeb
 @OptIn(ExperimentalComposeUiApi::class)
 fun main() {
     onWasmReady {
-        CanvasBasedWindow("Portfolio") {
+        CanvasBasedWindow("Hyeonseo") {
             var loading by remember { mutableStateOf(true) }
 
             LaunchedEffect(Unit) {
