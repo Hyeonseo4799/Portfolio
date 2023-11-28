@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import designsystem.component.Status.*
@@ -19,6 +20,7 @@ import designsystem.theme.PortfolioTheme
 fun StatusChip(
     modifier: Modifier = Modifier,
     status: Status,
+    fontSize: TextUnit = 12.sp
 ) {
     Row(
         modifier = modifier
@@ -43,8 +45,8 @@ fun StatusChip(
             color = Color.Black,
             text = status.text,
             style = MaterialTheme.typography.body1,
-            fontSize = 12.sp,
-            lineHeight = 12.sp,
+            fontSize = fontSize,
+            lineHeight = fontSize,
         )
     }
 }
