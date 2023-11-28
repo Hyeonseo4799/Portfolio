@@ -1,5 +1,4 @@
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.text.BasicText
 import androidx.compose.material.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -33,7 +32,6 @@ fun main() {
                     Surface(
                         modifier = Modifier
                             .fillMaxSize()
-//                            .padding(top = 32.dp)
                             .wrapContentWidth(align = Alignment.CenterHorizontally)
                             .widthIn(max = 900.dp),
                     ) {
