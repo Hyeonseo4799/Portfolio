@@ -95,39 +95,6 @@ fun ProjectCard(
     }
 }
 
-@Composable
-private fun TechStackItem(
-    techStack: String,
-) {
-    Text(
-        modifier = Modifier
-            .background(
-                color = backgroundColor(techStack = techStack),
-                shape = RoundedCornerShape(3.dp)
-            )
-            .padding(horizontal = 6.dp, vertical = 3.dp),
-        text = techStack,
-        style = MaterialTheme.typography.body1,
-        fontSize = 12.sp,
-        lineHeight = 12.sp
-    )
-}
-
-@Composable
-private fun backgroundColor(techStack: String): Color {
-    return when (techStack) {
-        "buildSrc" -> PortfolioTheme.color.lightOrange
-        "Retrofit", "OkHttp" -> PortfolioTheme.color.lightBlue
-        "Paging" -> PortfolioTheme.color.lightBeige
-        "DataStore", "Jetpack Compose" -> PortfolioTheme.color.terraCotta
-        "Hilt", "Coil" -> PortfolioTheme.color.palePeach
-        "Glide" -> PortfolioTheme.color.lightGreen
-        "Pager" -> PortfolioTheme.color.lightWine
-        "Livedata" -> PortfolioTheme.color.lightPink
-        else -> PortfolioTheme.color.silver
-    }
-}
-
 data class Project(
     val imageRes: String,
     val title: String,
