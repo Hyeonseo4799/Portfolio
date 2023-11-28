@@ -18,6 +18,13 @@ val Colors = PortfolioColor(
     lightGreen = LightGreen,
     darkBlue = DarkBlue,
     lightBlue = LightBlue,
+    palePeach = PalePeach,
+    lightWine = LightWine,
+    lightOrange = LightOrange,
+    terraCotta = TerraCotta,
+    lightPink = LightPink,
+    lightBeige = LightBeige,
+    silver = Silver,
 )
 
 @Immutable
@@ -32,6 +39,13 @@ data class PortfolioColor(
     val lightGreen: Color,
     val darkBlue: Color,
     val lightBlue: Color,
+    val palePeach: Color,
+    val lightWine: Color,
+    val lightOrange: Color,
+    val terraCotta: Color,
+    val lightPink: Color,
+    val lightBeige: Color,
+    val silver: Color,
 )
 
 val LocalColor = staticCompositionLocalOf { Colors }
