@@ -24,11 +24,7 @@ import org.jetbrains.compose.resources.painterResource
 @OptIn(ExperimentalResourceApi::class)
 @Composable
 fun ProjectCard(
-    imageRes: String,
-    title: String,
-    date: String,
-    status: Status,
-    techStack: List<String>,
+    project: Project,
     onClick: () -> Unit,
 ) {
     Card(
@@ -45,7 +41,7 @@ fun ProjectCard(
         Box {
             Image(
                 modifier = Modifier.fillMaxSize(),
-                painter = painterResource(res = imageRes),
+                painter = painterResource(res = project.imageRes),
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
             )
@@ -70,19 +66,19 @@ fun ProjectCard(
             ) {
                 Text(
                     modifier = Modifier.padding(top = 8.dp),
-                    text = title,
+                    text = project.title,
                     style = MaterialTheme.typography.body1
                 )
                 Text(
                     modifier = Modifier.padding(top = 6.dp),
-                    text = date,
+                    text = project.date,
                     style = MaterialTheme.typography.body1,
                     fontSize = 12.sp,
                     lineHeight = 12.sp
                 )
                 StatusChip(
                     modifier = Modifier.padding(top = 6.dp),
-                    status = status
+                    status = project.status
                 )
                 LazyRow(
                     modifier = Modifier
@@ -90,7 +86,7 @@ fun ProjectCard(
                         .padding(top = 6.dp, bottom = 10.dp),
                     horizontalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
-                    items(techStack) {
+                    items(project.techStack) {
                         TechStackItem(techStack = it)
                     }
                 }
@@ -131,3 +127,11 @@ private fun backgroundColor(techStack: String): Color {
         else -> PortfolioTheme.color.silver
     }
 }
+
+data class Project(
+    val imageRes: String,
+    val title: String,
+    val date: String,
+    val status: Status,
+    val techStack: List<String>,
+)
